@@ -1,0 +1,44 @@
+﻿@model UpdateBannerDto
+@{
+	ViewData["Title"] = "UpdateBanner";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Site Afişi Güncelle</h4>
+						<p class="card-subtitle mb-4">
+							Dikkat! Siteye afiş bilgisi güncellerken bu kayıttan başka kayıt olmaması durumuna dikkat ediniz. Aksi
+							takdirde kullanıcı görünümünde bozulmalar yaşanacak ve işlemler aksayacaktır. </p>
+						<form method="post">
+							<input type="hidden" asp-for="bannerID" />
+							<div class="form-group">
+								<label for="exampleInputTitle">Başlık</label>
+								<input type="text" class="form-control" id="exampleInputTitle" asp-for="title">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputDescription">Açıklama</label>
+								<textarea id="exampleInputDescription" class="form-control" maxlength="250" rows="3" asp-for="description"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputVideoDescription">Video Açıklaması</label>
+								<textarea id="exampleInputVideoDescription" class="form-control" maxlength="250" rows="3" asp-for="videoDescription"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputVideoUrl">Video URL</label>
+								<input type="text" class="form-control" id="exampleInputVideoUrl" asp-for="videoUrl">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Afişi Güncelle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

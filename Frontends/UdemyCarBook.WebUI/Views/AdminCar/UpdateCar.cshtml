@@ -1,0 +1,78 @@
+﻿@model UpdateCarDto
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Araç Güncelle</h4>
+						<form method="post">
+							<input type="hidden" asp-for="carID" />
+							<div class="form-group">
+								<label for="exampleInputBrand">Marka</label>
+								@Html.DropDownListFor(x => x.brandID, (List<SelectListItem>)ViewBag.brandValues, new { @class = "form-control" })
+							</div>
+							<div class="form-group">
+								<label for="exampleInputModel">Model</label>
+								<input type="text" class="form-control" id="exampleInputModel" asp-for="model" placeholder="Model">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputCoverImageUrl">Kapak Fotoğrafı</label>
+								<input type="text" class="form-control" id="exampleInputCoverImageUrl" asp-for="coverImageUrl" placeholder="Kapak Fotoğraf Linki">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputKm">Km</label>
+								<input type="text" placeholder="" id="exampleInputKm" asp-for="km" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+								<span class="font-13 text-muted">örn: "10.000"</span>
+							</div>
+							<div class="form-group">
+								<label>Vites Türü</label>
+								<div>
+									@foreach (var item in (List<SelectListItem>)ViewBag.TransmissionTypes)
+									{
+										<div class="custom-control custom-radio">
+											<input type="radio" id="transmission_@item.Value" name="transmission" value="@item.Value" class="custom-control-input" @(item.Value == Model.transmission ? "checked" : "")>
+											<label class="custom-control-label" for="transmission_@item.Value">@item.Text</label>
+										</div>
+									}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputSeat">Koltuk Sayısı</label>
+								<input type="number" class="form-control" id="exampleInputSeat" asp-for="seat">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputLuggage">Bagaj Sayısı</label>
+								<input type="number" class="form-control" id="exampleInputLuggage" asp-for="luggage">
+							</div>
+							<div class="form-group">
+								<label>Yakıt Türü</label>
+								<div>
+									@foreach (var item in (List<SelectListItem>)ViewBag.FuelTypes)
+									{
+										<div class="custom-control custom-radio">
+											<input type="radio" id="fuel_@item.Value" name="fuel" value="@item.Value" class="custom-control-input" @(item.Value == Model.fuel ? "checked" : "")>
+											<label class="custom-control-label" for="fuel_@item.Value">@item.Text</label>
+										</div>
+									}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputBigImageUrl">Büyük Kapak Fotoğrafı</label>
+								<input type="text" class="form-control" id="exampleInputBigImageUrl" asp-for="bigImageUrl" placeholder="Araç detayında görünecek büyük fotoğraf linki">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Aracı Güncelle</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

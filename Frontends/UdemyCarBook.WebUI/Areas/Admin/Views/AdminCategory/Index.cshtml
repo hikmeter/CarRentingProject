@@ -1,0 +1,59 @@
+﻿@model List<ResultCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Blog Kategori Listesi</h4>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Kategori Adı</th>
+										<th>Kategoriye Ait Bloglar</th>
+										<th>Güncelle</th>
+										<th>Sil</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model.Any())
+									{
+										@foreach (var item in Model)
+										{
+											<tr>
+												<th scope="row">@item.categoryID</th>
+												<td>@item.name</td>
+												<td><a href="/Admin/AdminCategory/UpdateCategory/@item.categoryID" class="btn btn-outline-dark">Kategoriye Ait Bloglar</a></td>
+												<td><a href="/Admin/AdminCategory/UpdateCategory/@item.categoryID" class="btn btn-outline-warning">Güncelle</a></td>
+												<td><a href="/Admin/AdminCategory/RemoveCategory/@item.categoryID" class="btn btn-outline-danger">Sil</a></td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td colspan="4" class="text-center">
+												<div class="alert alert-info">
+													<p class="mb-0">Henüz hiçbir kategori eklenmemiş!</p>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+
+							</table>
+							<a href="/Admin/AdminCategory/CreateCategory" class="btn btn-outline-success">Kategori Ekle</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

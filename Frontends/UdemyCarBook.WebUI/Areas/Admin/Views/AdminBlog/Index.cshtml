@@ -1,0 +1,66 @@
+﻿@model List<ResultAllBlogsWithAuthorsDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Blog Listesi</h4>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Tarih</th>
+										<th>Başlık</th>
+										<th>Yazar</th>
+										<th>Kategori</th>
+										<th>Blogu Görüntüle</th>
+										<th>Blog Yorumları</th>
+										<th>Kaldır</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model.Any())
+									{
+										@foreach (var item in Model)
+										{
+											<tr>
+												<td>@item.blogID</td>
+												<td>@item.createdDate.ToShortDateString()</td>
+												<td>@item.title</td>
+												<td>@item.authorName</td>
+												<td>@item.categoryName</td>
+												<td><a href="/Blog/BlogDetail/@item.blogID" class="btn btn-outline-info">Blogu Görüntüle</a></td>
+												<td><a href="/Admin/AdminComment/CommentListByBlog/@item.blogID" class="btn btn-outline-dark">Blog Yorumları</a></td>
+												<td><a href="/Admin/AdminBlog/RemoveBlog/@item.blogID" class="btn btn-outline-danger">Kaldır</a></td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td colspan="4" class="text-center">
+												<div class="alert alert-info">
+													<p class="mb-0">Henüz hiçbir blog eklenmemiş!</p>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

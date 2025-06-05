@@ -1,0 +1,63 @@
+﻿@model List<ResultFooterAddressDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Site Alt Adres Alanı</h4>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>Adres</th>
+										<th>Telefon Numarası</th>
+										<th>E-Mail Adresi</th>
+										<th>Açıklama</th>
+										<th>Güncelle</th>
+										<th>Sil</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model.Any())
+									{
+										@foreach (var item in Model)
+										{
+											<tr>
+												<td>@item.address</td>
+												<td>@item.phone</td>
+												<td>@item.email</td>
+												<td>@item.description</td>
+												<td><a href="/Admin/AdminFooterAddress/UpdateFooterAddress/@item.footerAddressID" class="btn btn-outline-warning">Güncelle</a></td>
+												<td><a href="/Admin/AdminFooterAddress/RemoveFooterAddress/@item.footerAddressID" class="btn btn-outline-danger">Sil</a></td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td colspan="4" class="text-center">
+												<div class="alert alert-info">
+													<p class="mb-0">Henüz hiçbir alt adres eklenmemiş!</p>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+							<a href="/Admin/AdminFooterAddress/CreateFooterAddress" class="btn btn-outline-success">Alt Adres Ekle</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

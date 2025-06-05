@@ -1,0 +1,98 @@
+﻿@model List<ResultFooterAddressDto>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$(document).ready(function() {
+		$("#btn1").click(function() {
+			swal("Şartlar ve Koşullar", "Bu siteye erişim ve kullanım, aşağıdaki şartlar ve koşullara tabidir. Sitemizi kullanarak, bu şartları kabul ettiğinizi belirtmiş oluyorsunuz. Sitemiz, yalnızca yasal amaçlarla kullanılabilir ve kullanıcıların siteyi hukuka aykırı şekilde kullanmamaları gerekmektedir. Site içeriği, tasarımı ve tüm materyallerin telif hakları, markalar ve diğer fikri mülkiyet hakları şirketimize aittir. Kullanıcılar, sitedeki içerikleri yalnızca kişisel ve ticari olmayan amaçlarla kullanabilirler. Sitemiz, kullanıcıların siteyi kullanımı sırasında oluşabilecek herhangi bir kayıp veya zarardan sorumlu değildir. Şartlar ve koşullar, zaman zaman değiştirilebilir ve kullanıcılar, bu değişiklikleri takip etmekle yükümlüdür. Siteyi kullanmaya devam etmeniz, bu değişiklikleri kabul ettiğiniz anlamına gelir.");
+		})
+		$("#btn2").click(function() {
+		swal("En İyi Fiyat Garantisi", "Müşterilerimize en uygun fiyatlarla en kaliteli hizmeti sunmayı taahhüt ediyoruz. En İyi Fiyat Garantisi kapsamında, aynı araç, aynı kiralama süresi ve aynı koşullarla başka bir platformda daha düşük bir fiyat bulmanız halinde, fiyat farkını karşılıyor ve size en avantajlı teklifi sunuyoruz. Müşteri memnuniyetini her zaman ön planda tutarak, güvenilir ve şeffaf fiyat politikamızla bütçenize en uygun çözümleri sunmaya devam ediyoruz. Uygun fiyatlarla kaliteli bir deneyim yaşamak için bize güvenebilirsiniz!");
+		})
+		$("#btn3").click(function() {
+			swal("Gizlilik & Çerez Politikası", "Sitemizi ziyaret ettiğinizde kişisel verilerinizin gizliliğini korumak en büyük önceliklerimizden biridir. Gizlilik politikamız, hangi verileri topladığımızı, bu verileri nasıl kullandığımızı ve nasıl koruduğumuzu açıklamaktadır.Kullanıcı deneyiminizi iyileştirmek ve hizmetlerimizi geliştirmek amacıyla çerezler (cookies) kullanıyoruz. Çerezler, tarayıcınız aracılığıyla cihazınıza kaydedilen küçük metin dosyalarıdır ve siteyi kullanım alışkanlıklarınızı analiz ederek size daha iyi bir hizmet sunmamıza yardımcı olur. Verileriniz, güvenli bir şekilde saklanmakta olup, yasal düzenlemelere ve veri koruma politikalarına uygun olarak işlenmektedir. Çerez kullanımını tarayıcı ayarlarınızdan yönetebilir veya devre dışı bırakabilirsiniz.");
+		})
+		$("#btn4").click(function() {
+			swal("SSS", "1. Araç kiralama için hangi belgelere ihtiyacım var?" + 
+	"Araç kiralamak için geçerli bir sürücü belgesi ve kimlik belgesi (nüfus cüzdanı veya pasaport) gerekmektedir. Bazı araç grupları için belirli bir yaş sınırı ve minimum ehliyet süresi şartı da bulunmaktadır." +
+
+	"2. Ödeme yöntemleri nelerdir?" +
+	"Kredi kartı, banka kartı ve belirli ödeme platformları aracılığıyla ödeme yapabilirsiniz. Online rezervasyonlar için güvenli ödeme seçeneklerimiz mevcuttur." +
+
+	"3. Araç teslim alma ve bırakma işlemleri nasıl gerçekleşir?" +
+	"Aracınızı belirlediğiniz konumdan teslim alabilirsiniz. Aynı şekilde, kiralama süresi sonunda belirlenen noktada aracı teslim etmeniz gerekmektedir. Teslim noktaları ve saatleri hakkında daha fazla bilgi almak için bizimle iletişime geçebilirsiniz." +
+
+	"4. Kiralama süresini uzatabilir miyim?" +
+	"Evet, kiralama sürenizi uzatabilirsiniz. Ancak, aracın müsaitlik durumuna göre ek ücret uygulanabilir. Uzatma işlemi için önceden bizimle iletişime geçmeniz önerilir." +
+
+	"5. Sigorta seçenekleri nelerdir?" +
+	"Tüm araçlarımız, zorunlu trafik sigortası kapsamındadır. Ek olarak, kasko ve tam koruma paketleri gibi farklı sigorta seçenekleri sunmaktayız. Daha fazla bilgi için rezervasyon sırasında detayları inceleyebilirsiniz." +
+
+	"Daha fazla sorunuz varsa, Bize Ulaşın sayfamızdan bizimle iletişime geçebilirsiniz.");
+		})
+	})
+</script>
+@foreach (var item in Model)
+{
+	<footer class="ftco-footer ftco-bg-dark ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+						<p>@item.description</p>
+						<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+							<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Bilgi</h2>
+						<ul class="list-unstyled">
+							<li><a href="/About/Index" class="py-2 d-block">Hakkımızda</a></li>
+							<li><a href="/Service/Index" class="py-2 d-block">Hizmetlerimiz</a></li>
+							<li><a href="javascript:void(0)" id="btn1" class="py-2 d-block">Şartlar ve Koşullar</a></li>
+							<li><a href="javascript:void(0)" id="btn2" class="py-2 d-block">En İyi Fiyat Garantisi</a></li>
+							<li><a href="javascript:void(0)" id="btn3" class="py-2 d-block">Gizlilik &amp; Çerez Politikası</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Müşteri Desteği</h2>
+						<ul class="list-unstyled">
+							<li><a href="javascript:void(0)" id="btn4" class="py-2 d-block">SSS</a></li>
+							<li><a href="/CarPricing/Index" class="py-2 d-block">Ödeme Yöntemleri</a></li>
+							<li><a href="#" class="py-2 d-block">Kiralama İpuçları</a></li>
+							<li><a href="#" class="py-2 d-block">Nasıl Çalışır?</a></li>
+							<li><a href="/Contact/Index" class="py-2 d-block">Bize Ulaşın</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Sorunuz mu var?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span class="text">@item.address</span></li>
+								<li><span class="icon icon-phone"></span><span class="text">@item.phone</span></li>
+								<li><span class="icon icon-envelope"></span><span class="text">@item.email</span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tüm hakları saklıdır. | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+}
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>

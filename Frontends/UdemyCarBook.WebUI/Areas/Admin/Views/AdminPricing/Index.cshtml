@@ -1,0 +1,57 @@
+﻿@model List<ResultPricingDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Ödeme Türü Listesi</h4>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Ödeme Türü</th>
+										<th>Güncelle</th>
+										<th>Sil</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model.Any())
+									{
+										@foreach (var item in Model)
+										{
+											<tr>
+												<th scope="row">@item.pricingID</th>
+												<td>@item.name</td>
+												<td><a href="/Admin/AdminPricing/UpdatePricing/@item.pricingID" class="btn btn-outline-warning">Güncelle</a></td>
+												<td><a href="/Admin/AdminPricing/RemovePricing/@item.pricingID" class="btn btn-outline-danger">Sil</a></td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td colspan="4" class="text-center">
+												<div class="alert alert-info">
+													<p class="mb-0">Henüz hiçbir ödeme türü eklenmemiş!</p>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+							<a href="/Admin/AdminPricing/CreatePricing" class="btn btn-outline-success">Ödeme Türü Ekle</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

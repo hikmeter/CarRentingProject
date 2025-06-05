@@ -1,0 +1,60 @@
+﻿@model List<ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Referans Listesi</h4>
+						<div class="table-responsive">
+							<table class="table mb-0">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Ad Soyad</th>
+										<th>Unvan</th>
+										<th>Yorum</th>
+										<th>Güncelle</th>
+										<th>Sil</th>
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model.Any())
+									{
+										@foreach (var item in Model)
+										{
+											<tr>
+												<td><img src="@item.imageUrl" class="rounded-circle" width="50" height="50"/></td>
+												<td>@item.name</td>
+												<td>@item.title</td>
+												<td>@item.comment</td>
+												<td><a href="/Admin/AdminTestimonial/UpdateTestimonial/@item.testimonialID" class="btn btn-outline-warning">Güncelle</a></td>
+												<td><a href="/Admin/AdminTestimonial/RemoveTestimonial/@item.testimonialID" class="btn btn-outline-danger">Sil</a></td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td colspan="6" class="text-center">
+												<div class="alert alert-info">
+													<p class="mb-0">Henüz hiçbir referans eklenmemiş!</p>
+												</div>
+											</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+							<a href="/Admin/AdminTestimonial/CreateTestimonial" class="btn btn-outline-success">Referans Ekle</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

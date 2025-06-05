@@ -1,0 +1,16 @@
+﻿@model List<ResultGetCommentsByBlogId>
+<ul class="comment-list">
+    @foreach(var item in Model)
+    {
+    <li class="comment">
+        <div class="vcard bio">
+            <img src="~/carbook-master/images/person_1.jpg" alt="Image placeholder">
+        </div>
+        <div class="comment-body">
+            <h3>@item.name</h3>
+            <div class="meta">@item.createdDate</div>
+            <p>@item.description</p>
+        </div>
+    </li>
+    }
+</ul>

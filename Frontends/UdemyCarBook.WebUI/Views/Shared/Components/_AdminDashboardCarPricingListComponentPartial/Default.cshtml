@@ -1,0 +1,35 @@
+﻿@model List<ResultCarPricingsWithTimePeriodsDto>
+<div class="col-xl-6">
+	<div class="card">
+		<div class="card-body">
+
+			<h4 class="card-title">Araç Kiralama Fiyatları</h4>
+			<p class="card-subtitle mb-4 font-size-13">
+				Belirli araçlarımızın günlük - haftalık - aylık kiralama ücretlerini içeren tablodur.
+			</p>
+			<div class="table-responsive">
+				<table class="table table-centered table-hover table-xl mb-0" id="recent-orders">
+					<thead>
+						<tr>
+							<th class="border-top-0">Araç</th>
+							<th class="border-top-0">Günlük Fiyat</th>
+							<th class="border-top-0">Haftalık Fiyat</th>
+							<th class="border-top-0">Aylık Fiyat</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach(var item in Model)
+						{
+						<tr>
+							<td class="text-truncate">@item.brandModel</td>
+							<td class="text-truncate">₺ @item.dailyAmount</td>
+							<td class="text-truncate">₺ @item.weeklyAmount</td>
+							<td class="text-truncate">₺ @item.monthlyAmount</td>
+						</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div> 
